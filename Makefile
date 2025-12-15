@@ -1,8 +1,8 @@
 .PHONY: all clean package install
 
 # App configuration
-APP_NAME = ta_http_action
-VERSION ?= dev
+APP_NAME = webhookmaster
+VERSION ?= dev-$(shell date +%s)
 PACKAGE_NAME = $(APP_NAME)-$(VERSION).tar.gz
 BUILD_DIR = build
 DIST_DIR = dist

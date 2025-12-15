@@ -36,7 +36,7 @@ function CredentialCreator({ onComplete }) {
     // Advanced options
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [availableApps, setAvailableApps] = useState([]);
-    const [selectedApp, setSelectedApp] = useState('ta_http_action');
+    const [selectedApp, setSelectedApp] = useState('webhookmaster');
     const [sharingLevel, setSharingLevel] = useState('global');
     const [readPerms, setReadPerms] = useState('*');
     const [writePerms, setWritePerms] = useState('*');

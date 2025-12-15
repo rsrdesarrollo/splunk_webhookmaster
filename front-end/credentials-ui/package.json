@@ -1,7 +1,7 @@
 {
-  "name": "ta-http-action-credentials-ui",
+  "name": "webhookmaster-credentials-ui",
   "version": "10.0.1",
-  "description": "React-based authentication credentials management UI for TA HTTP Action Splunk App",
+  "description": "React-based authentication credentials management UI for WebhookMaster Splunk App",
   "scripts": {
     "build": "NODE_ENV=production webpack --mode=production",
     "dev": "webpack serve --mode=development --port 8080",

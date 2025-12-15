@@ -1,7 +1,7 @@
 import { defaultFetchInit, handleResponse, handleError } from '@splunk/splunk-utils/fetch';
 
-const API_BASE = '/en-US/splunkd/__raw';
-const REALM = 'httpalert';
+export const API_BASE = '/en-US/splunkd/__raw';
+export const REALM_NAME = 'httpalert';
 
 // Fetch list of available Splunk apps
 export async function fetchAppsList() {
@@ -43,7 +43,7 @@ export async function createCredential(credentialData, credentialName, appContex
         const response = await fetch(endpoint, {
             ...defaultFetchInit,
             method: 'POST',
-            body: `password=${encodedData}&name=${credentialName}&realm=${REALM}&output_mode=json`,
+            body: `password=${encodedData}&name=${credentialName}&realm=${REALM_NAME}&output_mode=json`,
         });
 
         const result = await handleResponse(201)(response);
@@ -58,7 +58,7 @@ export async function createCredential(credentialData, credentialName, appContex
 
 // Update an existing credential
 export async function updateCredential(credentialData, credentialName, appContext) {
-    const endpoint = `${API_BASE}/servicesNS/nobody/${appContext}/storage/passwords/${REALM}:${credentialName}:`;
+    const endpoint = `${API_BASE}/servicesNS/nobody/${appContext}/storage/passwords/${REALM_NAME}:${credentialName}:`;
     const encodedData = encodeURIComponent(JSON.stringify(credentialData));
 
     try {
@@ -76,7 +76,7 @@ export async function updateCredential(credentialData, credentialName, appContex
 
 // Delete a credential
 export async function removeCredential(credentialName, appContext) {
-    const endpoint = `${API_BASE}/servicesNS/nobody/${appContext}/storage/passwords/${REALM}:${credentialName}:`;
+    const endpoint = `${API_BASE}/servicesNS/nobody/${appContext}/storage/passwords/${REALM_NAME}:${credentialName}:`;
 
     try {
         const response = await fetch(endpoint, {

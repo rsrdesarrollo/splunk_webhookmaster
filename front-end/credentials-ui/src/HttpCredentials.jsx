@@ -7,7 +7,7 @@ import CredentialEditor from './CredentialEditor';
 import CredentialCreator from './CredentialCreator';
 import CredentialRemover from './CredentialRemover';
 import { MainContainer, PageHeader, HeaderActions, InfoText } from './styles';
-import { fetchAllCredentials } from './api';
+import { fetchAllCredentials, REALM_NAME } from './api';
 import { getUserTheme } from '@splunk/splunk-utils/themes';
 
 // Apply dark theme background if needed
@@ -21,9 +21,8 @@ const CREDENTIAL_TYPES = {
     basic: 'Basic Authentication',
     header: 'Custom Header',
     bearer: 'Bearer Token',
+    hmac: 'HMAC Authentication',
 };
-
-const REALM_NAME = 'http_alert';
 
 // Parse credential data from Splunk storage format
 function parseCredentialEntry(entry) {
@@ -107,7 +106,7 @@ const CredentialsApp = () => {
             </PageHeader>
             
             <InfoText>
-                Manage authentication credentials for HTTP alert actions. 
+                Manage authentication credentials for webhook requests. 
                 Credentials are securely stored and encrypted.
             </InfoText>
 

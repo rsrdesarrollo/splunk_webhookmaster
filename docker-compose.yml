@@ -6,7 +6,7 @@ services:
     environment:
       - SPLUNK_START_ARGS=--accept-license
       - SPLUNK_GENERAL_TERMS=--accept-sgt-current-at-splunk-com
-      - SPLUNK_APPS_URL=/tmp/dist/ta_http_action-10.0.0.tar.gz
+      - SPLUNK_APPS_URL=/tmp/dist/webhookmaster-dev.tar.gz
       - SPLUNK_USER=splunk
       - SPLUNK_PASSWORD=changeme123
       - SPLUNK_LICENSE_URI=Free

@@ -1,4 +1,6 @@
-Last Modified: 16/05/2024
-Custom Alert Action developed to send a HTTP request
-Brendan Cooper 
-https://github.com/brendancooper/ta_http_action
+Last Modified: 15/12/2025
+WebhookMaster - Send customized HTTP requests and webhooks
+[rsrdesarrollo](https://github.com/rsrdesarrollo/splunk_webhookmaster)
+
+Original project by Brendan Cooper: https://github.com/brendancooper/ta_http_action
+This is a fork that has evolved to follow its own development path.

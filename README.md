@@ -1,10 +1,10 @@
-# TA_HTTP_ACTION
+# WebhookMaster
 
-Last Updated: 16th May 2024
+Last Updated: 15th December 2025
 
-Custom Alert Action developed to send a customised HTTP request
+A powerful Splunk app for sending customized HTTP requests and webhooks.
 
-Brendan Cooper: https://github.com/brendancooper/ta_http_action
+**Acknowledgments**: This project is a fork of [ta_http_action](https://github.com/brendancooper/ta_http_action) by Brendan Cooper. Thanks to Brendan for the original foundation. This fork has evolved to follow its own development path with enhanced features and improvements.
 
 ## Building the Package
 
@@ -14,7 +14,7 @@ Use the provided Makefile to build a Splunk package:
 make package
 ```
 
-This creates a tarball in `dist/ta_http_action-<version>.tar.gz` ready for installation.
+This creates a tarball in `dist/webhookmaster-<version>.tar.gz` ready for installation.
 
 ### Available Make Commands
 
@@ -74,7 +74,7 @@ make docker-clean
 
 ### Development Workflow
 
-The app is mounted as read-only at `/opt/splunk/etc/apps/ta_http_action`.
+The app is mounted as read-only at `/opt/splunk/etc/apps/webhookmaster`.
 
 After making changes to the app:
 
@@ -98,7 +98,7 @@ docker exec -it splunk-dev /opt/splunk/bin/splunk <command>
 Example - Check app status:
 
 ```bash
-docker exec -it splunk-dev /opt/splunk/bin/splunk display app ta_http_action
+docker exec -it splunk-dev /opt/splunk/bin/splunk display app webhookmaster
 ```
 
 ### Troubleshooting
@@ -118,7 +118,7 @@ docker exec -it splunk-dev bash
 #### Check app installation
 
 ```bash
-docker exec -it splunk-dev ls -la /opt/splunk/etc/apps/ta_http_action
+docker exec -it splunk-dev ls -la /opt/splunk/etc/apps/webhookmaster
 ```
 
 #### Check Splunk internal logs

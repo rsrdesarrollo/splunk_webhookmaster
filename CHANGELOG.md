@@ -43,7 +43,7 @@
 - **Default payload**: If no payload is specified, a default template with all alert data is now used.
 
 #### 5. **User interface changes**
-- **Added**: New web interface to manage credentials at `/app/ta_http_action/credentials`
+- **Added**: New web interface to manage credentials at `/app/webhookmaster/credentials`
 - **Modified**: Alert form now includes a search-based credential selector
 - **Modified**: Header and payload fields are now `<textarea>` instead of `<input type="text">`
 - **Impact**: The UX is different, users will need to familiarize themselves with the new interface.
@@ -78,7 +78,7 @@
    - Review payloads to verify they don't contain unintended patterns like `$$variable$$`
 
 2. **Migrate authentications**:
-   - Create credentials in the new interface at `/app/ta_http_action/credentials`
+   - Create credentials in the new interface at `/app/webhookmaster/credentials`
    - Update alerts to use the credential selector instead of manual headers
    - Remove tokens/passwords from custom headers
 

@@ -48,7 +48,7 @@ jobs:
             Download the `.tar.gz` file and install it in your Splunk instance:
 
             ```bash
-            tar -xzf ta_http_action-${{ steps.get_version.outputs.VERSION }}.tar.gz -C $SPLUNK_HOME/etc/apps/
+            tar -xzf webhookmaster-${{ steps.get_version.outputs.VERSION }}.tar.gz -C $SPLUNK_HOME/etc/apps/
             ```
 
             Then restart Splunk to load the app.

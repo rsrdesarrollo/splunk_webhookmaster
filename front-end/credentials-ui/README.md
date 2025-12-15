@@ -1,34 +1,34 @@
-# HTTP Alert Action - Credentials UI
+# WebhookMaster - Credentials UI
 
-Esta carpeta contiene la aplicación **React** para gestionar credenciales de autenticación HTTP en Splunk.
+This folder contains the **React** application for managing HTTP authentication credentials in Splunk.
 
-## 🏗️ Arquitectura
+## 🏗️ Architecture
 
-La aplicación está construida completamente desde cero con una arquitectura modular y original:
+The application is built from scratch with a modular architecture:
 
-### Componentes Principales
+### Main Components
 
-- **`CredentialsApp`** (`HttpCredentials.jsx`) - Componente raíz con tabla de credenciales
-- **`CredentialCreator`** - Modal para crear nuevas credenciales
-- **`CredentialEditor`** - Modal para editar credenciales existentes
-- **`CredentialRemover`** - Modal de confirmación para eliminar
-- **`CredentialInputs`** - Formularios reutilizables por tipo de autenticación
+- **`CredentialsApp`** (`HttpCredentials.jsx`) - Root component with credentials table
+- **`CredentialCreator`** - Modal for creating new credentials
+- **`CredentialEditor`** - Modal for editing existing credentials
+- **`CredentialRemover`** - Confirmation modal for deletion
+- **`CredentialInputs`** - Reusable forms by authentication type
 
-### Módulos de Soporte
+### Support Modules
 
-- **`api.js`** - Funciones para interactuar con Splunk REST API
-- **`styles.js`** - Styled components con diseño propio
-- **`index.jsx`** - Punto de entrada de la aplicación
+- **`api.js`** - Functions to interact with Splunk REST API
+- **`styles.js`** - Styled components with custom design
+- **`index.jsx`** - Application entry point
 
-## 🔐 Tipos de Autenticación
+## 🔐 Authentication Types
 
-1. **Basic Authentication** - Usuario y contraseña estándar HTTP
-2. **Custom Header** - Header HTTP personalizado (e.g., X-API-Key)
-3. **Bearer Token** - Tokens OAuth 2.0
+1. **Basic Authentication** - Standard HTTP username and password
+2. **Custom Header** - Custom HTTP header (e.g., X-API-Key)
+3. **Bearer Token** - OAuth 2.0 tokens
 
-## 🛠️ Compilación
+## 🛠️ Build
 
-### Automática (recomendado)
+### Automatic (recommended)
 ```bash
 cd /Users/raulfsru/code/ta_http_action
 make package
@@ -36,34 +36,34 @@ make package
 
 ### Manual
 ```bash
-cd vue-credentials
+cd credentials-ui
 npm install
 npm run build
 ```
 
-El archivo compilado se genera en: `../appserver/static/pages/credentials.js`
+The compiled file is generated at: `../../appserver/static/pages/credentials.js`
 
-## 🚀 Desarrollo
+## 🚀 Development
 
 ```bash
-npm run dev      # Servidor de desarrollo en puerto 8080
-npm run watch    # Compilación automática con watch mode
+npm run dev      # Development server on port 8080
+npm run watch    # Automatic compilation with watch mode
 ```
 
-## 📦 Dependencias
+## 📦 Dependencies
 
-- **@splunk/react-ui** - Componentes UI oficiales de Splunk
-- **@splunk/react-page** - Sistema de layout de Splunk
-- **@splunk/splunk-utils** - Utilidades para API REST
-- **styled-components** - Estilos CSS-in-JS
-- **React 17** - Framework de UI
+- **@splunk/react-ui** - Official Splunk UI components
+- **@splunk/react-page** - Splunk layout system
+- **@splunk/splunk-utils** - Utilities for REST API
+- **styled-components** - CSS-in-JS styles
+- **React 16** - UI framework
 
-## 🔒 Seguridad
+## 🔒 Security
 
-- Todas las credenciales se almacenan cifradas en Splunk's password storage
-- El realm específico es `http_alert` para aislamiento
-- Soporte completo para permisos y niveles de compartición (global/app/private)
+- All credentials are stored encrypted in Splunk's password storage
+- The specific realm is `httpalert` for isolation
+- Full support for permissions and sharing levels (global/app/private)
 
-## 📝 Notas
+## 📝 Notes
 
-Este código es **completamente original** y fue desarrollado específicamente para este proyecto, aunque está inspirado en las mejores prácticas de desarrollo de aplicaciones Splunk con React.
+This code is **completely original** and was developed specifically for this project, following best practices for developing Splunk applications with React.
