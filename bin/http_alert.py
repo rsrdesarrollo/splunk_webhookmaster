@@ -142,6 +142,14 @@ def process(data: dict):
     if method in ("POST", "PUT", "PATCH"):
         headers["content-type"] = "application/json"
 
+    if not verify_ssl_certificate:
+        logging.warning(
+            "httpalert maiking_insecure_request Job={sid} endpoint={endpoint}".format(
+                sid=data["sid"],
+                endpoint=endpoint,
+            )
+        )
+
     response = requests.request(
         method=method,
         url=endpoint,
