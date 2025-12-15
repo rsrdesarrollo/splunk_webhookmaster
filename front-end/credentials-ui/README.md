@@ -29,12 +29,14 @@ The application is built from scratch with a modular architecture:
 ## 🛠️ Build
 
 ### Automatic (recommended)
+
 ```bash
 cd /Users/raulfsru/code/ta_http_action
 make package
 ```
 
 ### Manual
+
 ```bash
 cd credentials-ui
 npm install

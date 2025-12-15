@@ -4,7 +4,10 @@ Last Updated: 15th December 2025
 
 A powerful Splunk app for sending customized HTTP requests and webhooks.
 
-**Acknowledgments**: This project is a fork of [ta_http_action](https://github.com/brendancooper/ta_http_action) by Brendan Cooper. Thanks to Brendan for the original foundation. This fork has evolved to follow its own development path with enhanced features and improvements.
+**Acknowledgments**: 
+
+- This project is a fork of [ta_http_action](https://github.com/brendancooper/ta_http_action) by Brendan Cooper. Thanks to Brendan for the original foundation. This fork has evolved to follow its own development path with enhanced features and improvements.
+- [Webhook icons created by GCONS - Flaticon](https://www.flaticon.com/free-icons/webhook)
 
 ## Building the Package
 
