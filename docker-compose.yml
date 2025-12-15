@@ -1,0 +1,33 @@
+services:
+  splunk:
+    image: splunk/splunk:latest
+    container_name: splunk-dev
+    hostname: splunk
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_GENERAL_TERMS=--accept-sgt-current-at-splunk-com
+      - SPLUNK_APPS_URL=/tmp/dist/ta_http_action-10.0.0.tar.gz
+      - SPLUNK_USER=splunk
+      - SPLUNK_PASSWORD=changeme123
+      - SPLUNK_LICENSE_URI=Free
+    ports:
+      - "8000:8000"   # Web UI
+      - "8088:8088"   # HEC (HTTP Event Collector)
+      - "8089:8089"   # Management/API port
+      - "9997:9997"   # Receiving port
+    volumes:
+      # Mount the app installer
+      - ./dist:/tmp/dist:ro
+      # Persist Splunk data
+      - splunk-data:/opt/splunk/var
+      - splunk-etc:/opt/splunk/etc
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  splunk-data:
+  splunk-etc:

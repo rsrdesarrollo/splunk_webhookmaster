@@ -1,0 +1,46 @@
+# Build artifacts
+build/
+dist/
+*.tar.gz
+*.spl
+
+# Environment files
+.env
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Node.js / Frontend
+node_modules/
+credentials-ui/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.*.tmp

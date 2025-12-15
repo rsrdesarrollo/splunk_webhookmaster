@@ -1,56 +1,95 @@
 <form class="form-horizontal form-complex">
-<div class="control-group">
-	<label class="control-label" for="httpalert_endpoint">Endpoint <span class="required">*</span> </label>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_endpoint">
+      Endpoint <span class="required">*</span>
+    </label>
     <div class="controls">
-	<input type="text" name="action.httpalert.param.endpoint" id="httpalert_endpoint"/>
+      <input
+        type="text"
+        name="action.httpalert.param.endpoint"
+        id="httpalert_endpoint"
+      />
     </div>
-</div>
-<div class="control-group">
-	<label class="control-label" for="httpalert_qs_params">Querystring Params  </label>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_method">
+      Method <span class="required">*</span>
+    </label>
     <div class="controls">
-	<input type="text" name="action.httpalert.param.qs_params" id="httpalert_qs_params"/>
-    </div>
-</div>
-<div class="control-group">
-	<label class="control-label" for="httpalert_custom_headers">Headers</label>
-    <div class="controls">
-	<input type="text" name="action.httpalert.param.custom_headers" id="httpalert_headers"/>
-    </div>
-</div>
-<div class="control-group">
-	<label class="control-label" for="httpalert_custom_separator">Headers Key-Value Separator</label>
-    <div class="controls">
-	<input type="text" name="action.httpalert.param.custom_separator" id="httpalert_separator"/>
-    <span class="help-block">Used to modify which character(s) is used to delimit key-value pairs. If blank '=' is used by default. This can be a problem where the value of the header contains an '='.</span>
-    </div>
-    
-</div>
-<div class="control-group">
-	<label class="control-label" for="httpalert_payload">Body  </label>
-    <div class="controls">
-	<input type="text" name="action.httpalert.param.payload" id="httpalert_payload"/>
-    </div>
-</div>
-<div class="control-group">
-	<label class="control-label" for="httpalert_method">Method <span class="required">*</span> </label>
-    <div class="controls">
-<select name="action.httpalert.param.method" id="httpalert_method">
+      <select name="action.httpalert.param.method" id="httpalert_method">
         <option value="post">POST</option>
         <option value="get">GET</option>
         <option value="delete">DELETE</option>
         <option value="patch">PATCH</option>
         <option value="put">PUT</option>
-</select>
+      </select>
     </div>
-</div>
-<div class="control-group">
-	<label class="control-label" for="httpalert_verify_ssl_certificate">Verify SSL Certificate <span class="required">*</span> </label>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_verify_ssl_certificate">
+      Verify SSL Certificate <span class="required">*</span>
+    </label>
     <div class="controls">
-<select name="action.httpalert.param.verify_ssl_certificate" id="httpalert_verify_ssl_certificate">
-        <option value=1>True</option>
-        <option value=0>False</option>
-</select>
+      <select
+        name="action.httpalert.param.verify_ssl_certificate"
+        id="httpalert_verify_ssl_certificate"
+      >
+        <option value="1">True</option>
+        <option value="0">False</option>
+      </select>
     </div>
-</div>
-    
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_credential">
+      Credentials
+    </label>
+    <div class="controls">
+      <splunk-search-dropdown
+        name="action.httpalert.param.credential"
+        id="httpalert_credential"
+        search='| rest /servicesNS/-/-/storage/passwords | search realm=httpalert | append [|makeresults | eval title="None", username="None (no auth)"]'
+        value-field="title"
+        label-field="username"
+      >
+      </splunk-search-dropdown>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_qs_params">
+      Querystring Params
+    </label>
+    <div class="controls">
+      <input
+        type="text"
+        name="action.httpalert.param.qs_params"
+        id="httpalert_qs_params"
+      />
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_custom_headers">Headers</label>
+    <div class="controls">
+      <textarea
+        class="input-xlarge"
+        rows="4"
+        cols="40"
+        name="action.httpalert.param.custom_headers"
+        id="httpalert_headers"
+        placeholder='{"Content-Type": "application/json", "X-Custom-Header": "value"}'
+      ></textarea>
+      <span class="help-block">Enter headers as a JSON object with key-value pairs</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="httpalert_payload"> Payload </label>
+    <div class="controls">
+      <textarea
+        class="input-xlarge"
+        rows="8"
+        cols="40"
+        name="action.httpalert.param.payload"
+        id="httpalert_payload"
+      ></textarea>
+    </div>
+  </div>
 </form>
