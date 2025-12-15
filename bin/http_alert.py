@@ -84,7 +84,7 @@ def process(data: dict):
         return
 
     try:
-        payload_dict = json.loads(payload)
+        payload = json.loads(payload)
     except Exception as ex:
         logging.error(f"Invalid payload JSON format '{payload}'. {ex}")
         return
@@ -127,7 +127,7 @@ def process(data: dict):
         hmac_time_header = credential.get("hmac_time_header", "").strip()
 
         default_headers = get_hmac_headers(
-            body=payload,
+            body=json.dumps(payload),
             hmac_secret=hmac_secret,
             hmac_hash_function=hmac_hash_function,
             hmac_digest_type=hmac_digest_type,
@@ -139,8 +139,8 @@ def process(data: dict):
     for k, v in {**custom_headers, **default_headers}.items():
         headers[k.lower()] = v
 
-    if method in ("post", "put", "patch"):
-        headers["content-type"] = "application/json"
+    if method not in ("post", "put", "patch"):
+        payload = None
 
     if not verify_ssl_certificate:
         logging.warning(
@@ -155,7 +155,7 @@ def process(data: dict):
         url=endpoint,
         auth=auth,
         params=qs_params,
-        data=payload,
+        json=payload,
         headers=headers,
         timeout=DEFAULT_REQUEST_TIMEOUT,
         verify=verify_ssl_certificate,
@@ -168,7 +168,7 @@ def process(data: dict):
                 sid=data["sid"],
                 endpoint=endpoint,
                 status_code=response.status_code,
-                payload=json.dumps(payload_dict),
+                payload=json.dumps(payload),
                 headers=json.dumps(headers),
                 response=json.dumps(response.text),
             )
