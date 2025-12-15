@@ -66,7 +66,7 @@ def process(data: dict):
     payload = render_template_with_context(
         configuration.get("payload", DEFAULT_PAYLOAD), context=context
     )
-    method = configuration.get("method", DEFAUTL_REQUEST_METHOD)
+    method = configuration.get("method", DEFAUTL_REQUEST_METHOD).lower()
     qs_params = render_template_with_context(
         configuration.get("qs_params", ""), context=context
     )
@@ -139,7 +139,7 @@ def process(data: dict):
     for k, v in {**custom_headers, **default_headers}.items():
         headers[k.lower()] = v
 
-    if method in ("POST", "PUT", "PATCH"):
+    if method in ("post", "put", "patch"):
         headers["content-type"] = "application/json"
 
     if not verify_ssl_certificate:
